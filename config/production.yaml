@@ -1,0 +1,46 @@
+# Production configuration for Alfreed
+app_name: "alfreed"
+version: "0.2.0"
+debug: false
+environment: "production"
+
+# Model configuration
+model:
+  default_embedding_model: "zhihan1996/DNABERT-2-117M"
+  max_token_length: 512
+  batch_size: 32
+  device: "auto"
+  cache_dir: "/app/cache/models"
+
+# Search configuration
+search:
+  default_k: 10
+  default_metric: "cosine"
+  similarity_threshold: 0.8
+  max_results_per_query: 5
+  enable_alignment: false
+  exclude_self_matches: true
+  
+# Alignment configuration
+alignment:
+  alignment_type: "local"
+  gap_open_penalty: 10
+  gap_extend_penalty: 1
+  match_score: 2
+  mismatch_penalty: -1
+
+# Storage configuration
+storage:
+  data_dir: "/app/data"
+  cache_dir: "/app/cache"
+  output_dir: "/app/output"
+  temp_dir: "/tmp"
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  log_to_file: true
+  log_file: "/app/logs/alfreed.log"
+  max_file_size: 52428800  # 50MB
+  backup_count: 10

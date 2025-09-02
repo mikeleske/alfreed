@@ -1,0 +1,40 @@
+# Windows-compatible Docker Compose configuration for Alfreed (GPU-only)
+
+services:
+  # GPU-enabled service
+  # Note: Requires WSL2 + Docker Desktop with GPU support
+  alfreed:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: alfreed:latest
+    container_name: alfreed
+    volumes:
+      - type: bind
+        source: ../data
+        target: /app/data
+        read_only: true
+      - type: bind
+        source: ../output
+        target: /app/output
+      - cache:/app/cache
+      - logs:/app/logs
+    environment:
+      - ALFREED_ENV=production
+      - ALFREED_DEVICE=cuda
+      - ALFREED_LOG_LEVEL=INFO
+      - CUDA_VISIBLE_DEVICES=0
+    runtime: nvidia
+    restart: unless-stopped
+
+# Named volumes for persistent data
+volumes:
+  cache:
+    driver: local
+  logs:
+    driver: local
+
+# Networks
+networks:
+  default:
+    name: alfreed-network

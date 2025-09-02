@@ -1,0 +1,8 @@
+# Override file for local development
+# This file is automatically loaded by docker-compose
+
+services:
+  alfreed:
+    volumes:
+      - ${PWD}/../data:/app/data:ro
+      - ${PWD}/../output:/app/output

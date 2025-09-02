@@ -1,0 +1,22 @@
+# Alfreed GPU Requirements
+# Core scientific computing
+numpy
+pandas
+pyarrow
+
+# Bioinformatics
+biopython
+parasail
+
+# Configuration and utilities
+PyYAML>=6.0
+tqdm>=4.65.0
+joblib>=1.3.0
+
+# ML / Cuda (PyTorch installed separately in Dockerfile)
+transformers==4.50.1
+einops
+huggingface-hub
+
+# Vector search - GPU version
+faiss-cpu
