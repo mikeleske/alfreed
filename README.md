@@ -7,6 +7,7 @@
 A high-performance DNA sequence similarity search system using Genomic Language Model (gLM) embeddings and FAISS vector search.
 
 This implementation follows the principles defined in our paper:
+
 **Alignment-free Bacterial Taxonomy Classification with Genomic Language Models**
 *Mike Leske, Jamie A. FitzGerald, Keith Coughlan, Francesca Bottacini, Haithem Afli, Bruno Gabriel Nascimento Andrade*
 bioRxiv 2025.06.27.662019; doi: https://doi.org/10.1101/2025.06.27.662019
